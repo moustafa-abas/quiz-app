@@ -1,15 +1,21 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-
+import gif from'./assets/Untitled video - Made with Clipchamp.gif'
 export default function Home() {
+  const [state, setState] = useState(false);
   const [name, setName] = useState("");
+  setTimeout(() => {
+    setState(true)
+  }, 4000);
   return (
+    <>
+    {state?
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        localStorage.setItem("name",name)
-        location.replace('/categories')
+        localStorage.setItem("name",JSON.stringify(name))
+        location.replace('/Categories')
       }}
       className="w-full flex  h-svh items-center justify-center"
     >
@@ -27,5 +33,9 @@ export default function Home() {
         Send
       </button>
     </form>
+    :
+    <Image src={gif} alt="welcome to my quiz-app" className="w-full h-screen"/>
+  }
+    </>
   );
 }
