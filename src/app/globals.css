@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+*{
+  box-sizing: border-box;
+}
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -21,5 +23,5 @@ body {
 }
 .container{
   width: 90% ;
-margin: auto;
+/* margin:20px auto; */
 }

@@ -17,18 +17,18 @@ export default function Home() {
         localStorage.setItem("name",JSON.stringify(name))
         location.replace('/Categories')
       }}
-      className="w-full flex  h-svh items-center justify-center"
+      className="mx-4 flex  h-svh items-center justify-center "
     >
       <input
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder="Write Your Name"
-        className="h-14 w-1/2   rounded-md outline-none text-black indent-2 focus:border-2 border-orange-700 "
+        className="h-14 w-3/4 md:w-1/2   rounded-md outline-none text-black indent-2 focus:border-2 border-orange-700 "
       />
       <button
         type="submit"
-        className="bg-orange-700 h-14 ms-1 w-20 rounded-md hover:bg-orange-600"
+        className="bg-orange-700 h-14 ms-1  w-20 md:w-32 rounded-md hover:bg-orange-900"
       >
         Send
       </button>
