@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import gif from "./assets/Untitled video - Made with Clipchamp.gif";
+import gif from "./assets/Black and Orange Modern Welcome to My Channel Video.webp";
 export default function Home() {
   const [state, setState] = useState(false);
   const [name, setName] = useState("");
@@ -10,7 +10,6 @@ export default function Home() {
   }, 4000);
   return (
     <>
-      {state ? (
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -33,13 +32,7 @@ export default function Home() {
             Send
           </button>
         </form>
-      ) : (
-        <Image
-          src={gif}
-          alt="welcome to my quiz-app"
-          className="w-full h-screen"
-        />
-      )}
+
     </>
   );
 }
