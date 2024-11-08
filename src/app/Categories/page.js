@@ -18,7 +18,11 @@ const fetchData = async () => {
 
 fetchData();
 }, []);
-const Name = JSON.parse(localStorage.getItem("name"));
+useEffect(() => {
+    if (typeof window !== 'undefined') {
+        const Name = JSON.parse(localStorage.getItem("name"));
+    }
+}, [input])
 
 return (
 <main className="container mx-auto my-14">
@@ -34,9 +38,11 @@ return (
         key={tag.id}
         value={tag.name}
         onClick={(e) => {
+            if (typeof window !== 'undefined') {
+
             localStorage.setItem("tag", JSON.stringify(e.target.value));
             location.replace("Difficulty");
-        }}
+        }}}
         className="w-full sm:w-1/4 md:w-1/5 lg:w-1/6 h-14 bg-orange-700 text-xl hover:bg-orange-900 rounded-md"
         >
         {tag.name}
