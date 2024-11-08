@@ -1,7 +1,6 @@
 "use client";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-// import { FaUser } from "react-icons/fa";
 
 const page = () => {
 const [tags, setTags] = useState();
@@ -23,14 +22,12 @@ const Name = JSON.parse(localStorage.getItem("name"));
 
 return (
 <main className="container mx-auto my-14">
-    {/* <header className='flex justify-between'>
-<h1 className='text-2xl font-semibold flex gap-2 items-center'><FaUser />{Name}</h1>
-<h2 className='text-2xl font-semibold flex gap-2 items-center capitalize'>score 0 / 0</h2>
-</header> */}
+
     <h3 className="text-center text-3xl  capitalize">
     <span className="text-orange-700 font-bold normal-case">{Name}</span>,what's your
     favorite type of questions..?
     </h3>
+    {tags?
     <section className="flex flex-wrap gap-3 md:gap-5 mt-10 justify-center">
     {tags?.map((tag) => (
         <button
@@ -45,7 +42,9 @@ return (
         {tag.name}
         </button>
     ))}
-    </section>
+    </section>:
+    <h1 className="text-center capitalize mt-20"> please wait....</h1>
+}
 </main>
 );
 };
