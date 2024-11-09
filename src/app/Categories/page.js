@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 
 const page = () => {
 const [tags, setTags] = useState();
+const [Name, setName] = useState('');
 useEffect(() => {
 const fetchData = async () => {
     try {
@@ -19,12 +20,10 @@ const fetchData = async () => {
 fetchData();
 }, []);
 useEffect(() => {
-    if (typeof window !== 'undefined') {
-        const Name = JSON.parse(localStorage.getItem("name"));
-    }
-}, [input])
 
-return (
+      setName( JSON.parse(localStorage.getItem("name")))
+    }, [])
+    return (
 <main className="container mx-auto my-14">
 
     <h3 className="text-center text-3xl  capitalize">
@@ -38,11 +37,10 @@ return (
         key={tag.id}
         value={tag.name}
         onClick={(e) => {
-            if (typeof window !== 'undefined') {
 
             localStorage.setItem("tag", JSON.stringify(e.target.value));
             location.replace("Difficulty");
-        }}}
+        }}
         className="w-full sm:w-1/4 md:w-1/5 lg:w-1/6 h-14 bg-orange-700 text-xl hover:bg-orange-900 rounded-md"
         >
         {tag.name}

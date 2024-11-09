@@ -4,7 +4,6 @@ import React from "react";
 const page = () => {
 const Name = JSON.parse(localStorage.getItem("name"));
 const cat = JSON.parse(localStorage.getItem("tag"));
-console.log(Name);
 return (
 <main className="container mx-auto my-10">
     <h3 className="text-center sm:text-3xl  capitalize sm:leading-10">
