@@ -6,23 +6,20 @@ import trueMark from "../assets/Black and White Futuristic Coming Soon A3 Landsc
 import falseMark from "../assets/Black and White Futuristic Coming Soon A3 Landscape (1).webp";
 import Image from "next/image";
 const page = () => {
-  const [Name,setName] = useState('');
-  const [cat,setCat] = useState('');
-  const [difficulty,setDifficulty] = useState('');
-  useEffect(() => {
-  setName(JSON.parse(localStorage.getItem("name")))
-  setCat(JSON.parse(localStorage.getItem("tag")))
-  setDifficulty(JSON.parse(localStorage.getItem("difficulty")))
-  }, [])
-  // const Name = ;
-  // const cat = ;
-  // const difficulty = ;
+  const [Name, setName] = useState("");
+  const [cat, setCat] = useState("");
+  const [difficulty, setDifficulty] = useState("");
   const [quiz, setQuiz] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answer, setAnswer] = useState("");
   const [score, setScore] = useState(0);
   const [showCorrection, setShowCorrection] = useState(false);
   const [finish, setFinish] = useState(false);
+  useEffect(() => {
+    setName(JSON.parse(localStorage.getItem("name")));
+    setCat(JSON.parse(localStorage.getItem("tag")));
+    setDifficulty(JSON.parse(localStorage.getItem("difficulty")));
+  }, []);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -80,7 +77,7 @@ const page = () => {
       location.replace("/Categories");
       setFinish(false);
     }
-  }, 4000);
+  }, 5000);
   return (
     <div className="relative">
       <main className={`container mx-auto my-8   `}>
@@ -190,13 +187,11 @@ const page = () => {
                 <h1 className="text-2xl capitalize text-center font-semibold mb-10">
                   your answer is{" "}
                   <span className="text-orange-700 font-bold text-3xl">
-                    {" "}
                     {answer === "true" ? "correct " : "  incorrect"}
                   </span>
                   <br /> and your score{" "}
                   {answer === "true" ? "become " : "still"}
                   <span className="text-orange-700 font-bold text-3xl">
-                    {" "}
                     {score} / {currentQuestion}
                   </span>
                 </h1>
@@ -222,7 +217,6 @@ const page = () => {
                 you finished this task
                 <br /> and your score is
                 <span className="text-orange-700 font-bold text-3xl">
-                  {" "}
                   {score} / {questions.length}
                 </span>
               </h1>

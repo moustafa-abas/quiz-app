@@ -11,7 +11,7 @@ const fetchData = async () => {
     const response = await axios.get(
         "https://quizapi.io/api/v1/tags?apiKey=JKnszD0q1l8E4VRis8bTPinvgG92WdHdG21QoT78"
     );
-    setTags(response.data);
+    setTags(response.data.filter(tag=>tag.name!='Undefined'));
     } catch (error) {
     console.error("Error fetching data:", error.message);
     }
@@ -20,7 +20,6 @@ const fetchData = async () => {
 fetchData();
 }, []);
 useEffect(() => {
-
       setName( JSON.parse(localStorage.getItem("name")))
     }, [])
     return (
