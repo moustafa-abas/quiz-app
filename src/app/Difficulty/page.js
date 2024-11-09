@@ -1,16 +1,20 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const page = () => {
-const Name = JSON.parse(localStorage.getItem("name"));
-const cat = JSON.parse(localStorage.getItem("tag"));
+    const [Name, setName] = useState();
+    const [Cat, setCat] = useState();
+    useEffect(() => {
+    setName(JSON.parse(localStorage.getItem("name")))
+    setCat(JSON.parse(localStorage.getItem("tag")))
+    }, [])
 return (
 <main className="container mx-auto my-10">
     <h3 className="text-center sm:text-3xl  capitalize sm:leading-10">
     <span className="text-orange-700 font-bold normal-case">{Name}</span>
     ,you select your favorite type of questions as
     <span className="text-orange-700 font-bold normal-case ms-1 ">
-        ( {cat} ) .
+        ( {Cat} ) .
     </span>
     <br />
     now we need you to select your level of questions....let's start !

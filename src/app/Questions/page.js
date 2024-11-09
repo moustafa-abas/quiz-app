@@ -6,9 +6,17 @@ import trueMark from "../assets/Black and White Futuristic Coming Soon A3 Landsc
 import falseMark from "../assets/Black and White Futuristic Coming Soon A3 Landscape (1).webp";
 import Image from "next/image";
 const page = () => {
-  const Name = JSON.parse(localStorage.getItem("name"));
-  const cat = JSON.parse(localStorage.getItem("tag"));
-  const difficulty = JSON.parse(localStorage.getItem("difficulty"));
+  const [Name,setName] = useState('');
+  const [cat,setCat] = useState('');
+  const [difficulty,setDifficulty] = useState('');
+  useEffect(() => {
+  setName(JSON.parse(localStorage.getItem("name")))
+  setCat(JSON.parse(localStorage.getItem("tag")))
+  setDifficulty(JSON.parse(localStorage.getItem("difficulty")))
+  }, [])
+  // const Name = ;
+  // const cat = ;
+  // const difficulty = ;
   const [quiz, setQuiz] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answer, setAnswer] = useState("");
