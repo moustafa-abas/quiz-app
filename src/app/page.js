@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import gif from "./assets/vedio.gif";
+import gif from "./assets/Black and Orange Modern Welcome to My Channel Video.jpg";
 export default function Home() {
   const [state, setState] = useState(false);
   const [name, setName] = useState("");
